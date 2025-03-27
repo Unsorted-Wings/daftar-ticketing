@@ -84,7 +84,7 @@ export function FeedbackDialog({ feedback, onClose }: FeedbackDialogProps) {
                 <Badge variant={feedback.status === "new" ? "default" : feedback.status === "read" ? "secondary" : "success"}>
                   {feedback.status}
                 </Badge>
-                <Badge variant={feedback.satisfaction === "satisfied" ? "success" : feedback.satisfaction === "neutral" ? "secondary" : "destructive"}>
+                <Badge variant={feedback.satisfaction === "satisfied" ? "success" : "destructive"}>
                   {feedback.satisfaction}
                 </Badge>
               </div>
