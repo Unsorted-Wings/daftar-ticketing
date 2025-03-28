@@ -4,7 +4,7 @@ import { MessageSquare, Lightbulb, Calendar } from "lucide-react"
 export default function AdminDashboard() {
   return (
     <div className="space-y-6">
-      <div className="grid gap-4 md:grid-cols-3">
+      <div className="grid gap-4 md:grid-cols-3 py-10 px-4">
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">Total Feedback</CardTitle>

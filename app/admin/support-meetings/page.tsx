@@ -1,10 +1,10 @@
-"use client"
-import { useState } from "react"
-import { Card } from "@/components/ui/card"
-import { DataTable } from "@/components/ui/data-table"
-import { columns } from "./columns"
-import { SupportMeetingDialog } from "./support-meeting-dialog"
-import { SupportMeeting } from "./types"
+"use client";
+import { useState } from "react";
+import { Card } from "@/components/ui/card";
+import { DataTable } from "@/components/ui/data-table";
+import { columns } from "./columns";
+import { SupportMeetingDialog } from "./support-meeting-dialog";
+import { SupportMeeting } from "./types";
 
 const sampleData: SupportMeeting[] = [
   {
@@ -14,7 +14,7 @@ const sampleData: SupportMeeting[] = [
       email: "john@example.com",
       avatar: "https://github.com/shadcn.png",
     },
-    status: "scheduled" as const,
+    status: "scheduled",
     query: "Need help with API integration",
     preferredDate: "2024-03-25",
     preferredTime: "14:00",
@@ -29,7 +29,7 @@ const sampleData: SupportMeeting[] = [
       email: "jane@example.com",
       avatar: "https://github.com/shadcn.png",
     },
-    status: "completed" as const,
+    status: "completed",
     query: "Database optimization consultation",
     preferredDate: "2024-03-24",
     preferredTime: "15:30",
@@ -44,7 +44,7 @@ const sampleData: SupportMeeting[] = [
       email: "mike@example.com",
       avatar: "https://github.com/shadcn.png",
     },
-    status: "pending" as const,
+    status: "pending",
     query: "Security audit requirements",
     preferredDate: "2024-03-26",
     preferredTime: "09:15",
@@ -52,41 +52,28 @@ const sampleData: SupportMeeting[] = [
     phoneNumber: "555-0125",
     submittedAt: "2024-03-18T09:15:00Z",
   },
-]
-
-const filterableColumns = [
-  {
-    id: "status",
-    title: "Status",
-    options: [
-      { label: "Scheduled", value: "scheduled" },
-      { label: "Completed", value: "completed" },
-      { label: "Pending", value: "pending" },
-    ],
-  },
-]
+];
 
 export default function SupportMeetingsPage() {
-  const [selectedMeeting, setSelectedMeeting] = useState<SupportMeeting | null>(null)
-  const [isDialogOpen, setIsDialogOpen] = useState(false)
+  const [selectedMeeting, setSelectedMeeting] = useState<SupportMeeting | null>(null);
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
 
   const handleDialogClose = () => {
-    setIsDialogOpen(false)
-    setSelectedMeeting(null)
-  }
+    setIsDialogOpen(false);
+    setSelectedMeeting(null);
+  };
 
   return (
-    <div className="container mx-auto py-10">
-      <Card className="p-6">
+    <div className="container mx-auto py-10 px-4">
+        <h2 className="text-2xl font-bold mb-4">Support Meetings</h2>
         <DataTable
           columns={columns}
           data={sampleData}
           onRowClick={(row) => {
-            setSelectedMeeting(row)
-            setIsDialogOpen(true)
+            setSelectedMeeting(row);
+            setIsDialogOpen(true);
           }}
         />
-      </Card>
       {selectedMeeting && (
         <SupportMeetingDialog
           meeting={selectedMeeting}
@@ -96,5 +83,5 @@ export default function SupportMeetingsPage() {
         />
       )}
     </div>
-  )
-} 
+  );
+}

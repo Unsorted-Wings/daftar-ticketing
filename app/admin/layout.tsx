@@ -74,13 +74,6 @@ export default function AdminLayout({
 
       {/* Main Content */}
       <div className="flex-1">
-        <div className="h-14 border-b px-4 flex items-center">
-          <div className="flex-1">
-            <h1 className="text-lg font-semibold">
-              {sidebarNavItems.find((item) => item.href === pathname)?.title || "Dashboard"}
-            </h1>
-          </div>
-        </div>
         <div className="p-6">
           {children}
         </div>

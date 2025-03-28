@@ -85,17 +85,16 @@ const filterableColumns = [
 ]
 
 export default function FeedbackPage() {
-  const [selectedFeedback, setSelectedFeedback] = useState<Feedback | null>(null)
+  const [selectedFeedback, setSelectedFeedback] = useState<Feedback | null>(null);
 
   return (
-    <div className="container mx-auto py-10">
-      <Card className="p-6">
+    <div className="container mx-auto py-10 px-4">
+        <h2 className="text-2xl font-bold mb-4">User Feedback</h2>
         <DataTable
           columns={columns}
           data={sampleData}
           onRowClick={(row) => setSelectedFeedback(row)}
         />
-      </Card>
       {selectedFeedback && (
         <FeedbackDialog
           feedback={selectedFeedback}
@@ -103,5 +102,5 @@ export default function FeedbackPage() {
         />
       )}
     </div>
-  )
-} 
+  );
+}
